@@ -3,7 +3,7 @@ require 'gosu'
 
 class Player
     def initialize
-        @image = Gosu::Image.new("media/starfighter.jpg")
+        @image = Gosu::Image.new("media/starfighter.png")
         @x = @y = @vel_x = @vel_y = @angle = 0.0
         @score = 0
         #@beep = Gosu::Sample.new("media/beep.wav")
@@ -32,6 +32,7 @@ class Player
     def turn_left
         @angle -= 4.5
     end
+
     def turn_right
         @angle += 4.5
     end
@@ -47,17 +48,17 @@ class Player
     end
 
     # Increase the player's score
-    def collect_stars(stars)
-        stars.reject! do |star|
-            if Gosu::distance(@x, @y, star.x, star.y) < 35
-                @score += 10
-                @beep.play
-                true
-            else
-                false
-            end
-        end
-    end
+    # def collect_stars(stars)
+    #     stars.reject! do |star|
+    #         if Gosu::distance(@x, @y, star.x, star.y) < 35
+    #             @score += 10
+    #             @beep.play
+    #             true
+    #         else
+    #             false
+    #         end
+    #     end
+    # end
 
     # Return the player's score
     def score
