@@ -1,16 +1,20 @@
-require_relative 'gosu'
-require_relative 'star'
+require 'gosu'
+# require_relative 'star'
 
 class Player
     def initialize
-        @image = Gosu::Image.new("media/starfighter.bmp")
+        @image = Gosu::Image.new("media/starfighter.jpg")
         @x = @y = @vel_x = @vel_y = @angle = 0.0
         @score = 0
-        @beep = Gosu::Sample.new("media/beep.wav")
+        #@beep = Gosu::Sample.new("media/beep.wav")
     end
     # Return the player's x coordinate
     def x
         @x
+    end
+
+    def warp(x, y)
+        @x, @y = x, y
     end
 
     # Draw the player's ship on screen, rotated to match its angle of travel
@@ -54,7 +58,7 @@ class Player
             end
         end
     end
-    
+
     # Return the player's score
     def score
         @score
