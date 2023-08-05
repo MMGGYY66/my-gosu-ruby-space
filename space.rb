@@ -1,4 +1,6 @@
 require 'gosu'
+require_relative 'player'
+require_relative 'star'
 
 class Space < Gosu::Window
     def initialize
