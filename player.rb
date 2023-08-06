@@ -2,11 +2,14 @@ require 'gosu'
 # require_relative 'star'
 
 class Player
+    attr_reader :score
+     
     def initialize
         @image = Gosu::Image.new("media/starfighter.png")
         @x = @y = @vel_x = @vel_y = @angle = 0.0
         @score = 0
-        #@beep = Gosu::Sample.new("media/beep.wav")
+        @beep = Gosu::Sample.new("media/beep.wav")
+
     end
     # Return the player's x coordinate
     def x
@@ -48,17 +51,17 @@ class Player
     end
 
     # Increase the player's score
-    # def collect_stars(stars)
-    #     stars.reject! do |star|
-    #         if Gosu::distance(@x, @y, star.x, star.y) < 35
-    #             @score += 10
-    #             @beep.play
-    #             true
-    #         else
-    #             false
-    #         end
-    #     end
-    # end
+    def collect_stars(stars)
+        stars.reject! do |star|
+            if Gosu::distance(@x, @y, star.x, star.y) < 35
+                @score += 10
+                @beep.play
+                true
+            else
+                false
+            end
+        end
+    end
 
     # Return the player's score
     def score
