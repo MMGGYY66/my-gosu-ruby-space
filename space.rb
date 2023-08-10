@@ -52,7 +52,7 @@ class Space < Gosu::Window
         @background_image.draw(0, 0, ZOrder::Background)
         @stars.each { |star| star.draw }
 
-        @font.draw("Score: " + @player.score.to_s, 10, 10, ZOrder::UI, 1.0, 1.0, 0xff_ffff00)
+        @font.draw_text("Score: " + @player.score.to_s, 10, 10, ZOrder::UI, 1.0, 1.0, 0xff_ffff00)
     end
 
 end
